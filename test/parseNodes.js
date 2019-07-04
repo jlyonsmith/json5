@@ -1,5 +1,5 @@
-const assert = require('assert')
-const sinon = require('sinon')
+// const assert = require('assert')
+// const sinon = require('sinon')
 const JSON5 = require('../lib')
 
 require('tap').mochaGlobals()
@@ -11,7 +11,7 @@ t.test('parse(text, {wantNodes: true})', t => {
         t.strictSame(
             JSON5.parse('{}', {wantNodes: true}),
             {
-                type: "object",
+                type: 'object',
                 value: {},
                 line: 1,
                 column: 1,
@@ -22,14 +22,14 @@ t.test('parse(text, {wantNodes: true})', t => {
         t.strictSame(
             JSON5.parse('{"a":1}', {wantNodes: true}),
             {
-                type: "object",
+                type: 'object',
                 value: {
-                    "a": {
-                        type: "numeric",
+                    'a': {
+                        type: 'numeric',
                         value: 1,
                         line: 1,
                         column: 6,
-                    }
+                    },
                 },
                 line: 1,
                 column: 1,
@@ -40,14 +40,14 @@ t.test('parse(text, {wantNodes: true})', t => {
         t.strictSame(
             JSON5.parse("{'a':1}", {wantNodes: true}),
             {
-                type: "object",
+                type: 'object',
                 value: {
-                    "a": {
-                        type: "numeric",
+                    'a': {
+                        type: 'numeric',
                         value: 1,
                         line: 1,
                         column: 6,
-                    }
+                    },
                 },
                 line: 1,
                 column: 1,
@@ -58,14 +58,14 @@ t.test('parse(text, {wantNodes: true})', t => {
         t.strictSame(
             JSON5.parse('{a:1}', {wantNodes: true}),
             {
-                type: "object",
+                type: 'object',
                 value: {
-                    "a": {
-                        type: "numeric",
+                    'a': {
+                        type: 'numeric',
                         value: 1,
                         line: 1,
                         column: 4,
-                    }
+                    },
                 },
                 line: 1,
                 column: 1,
@@ -94,20 +94,20 @@ t.test('parse(text, {wantNodes: true})', t => {
         t.strictSame(
             JSON5.parse('{abc:1,def:2}', {wantNodes: true}),
             {
-                type: "object",
+                type: 'object',
                 value: {
-                    "abc": {
-                        type: "numeric",
+                    'abc': {
+                        type: 'numeric',
                         value: 1,
                         line: 1,
                         column: 6,
                     },
-                    "def": {
-                        type: "numeric",
+                    'def': {
+                        type: 'numeric',
                         value: 2,
                         line: 1,
                         column: 12,
-                    }
+                    },
                 },
                 line: 1,
                 column: 1,
@@ -118,18 +118,18 @@ t.test('parse(text, {wantNodes: true})', t => {
         t.strictSame(
             JSON5.parse('{a:{b:2}}', {wantNodes: true}),
             {
-                type: "object",
+                type: 'object',
                 value: {
-                    "a": {
-                        type: "object",
+                    'a': {
+                        type: 'object',
                         value: {
-                            "b": {
-                                type: "numeric",
+                            'b': {
+                                type: 'numeric',
                                 value: 2,
                                 line: 1,
                                 column: 7,
-                            }
-                                },
+                            },
+                        },
                         line: 1,
                         column: 4,
                     },
@@ -147,7 +147,7 @@ t.test('parse(text, {wantNodes: true})', t => {
         t.strictSame(
             JSON5.parse('[]', {wantNodes: true}),
             {
-                type: "array",
+                type: 'array',
                 value: [],
                 line: 1,
                 column: 1,
@@ -158,14 +158,14 @@ t.test('parse(text, {wantNodes: true})', t => {
         t.strictSame(
             JSON5.parse('[1]', {wantNodes: true}),
             {
-                type: "array",
+                type: 'array',
                 value: [
                     {
-                        type: "numeric",
+                        type: 'numeric',
                         value: 1,
                         line: 1,
                         column: 2,
-                    }
+                    },
                 ],
                 line: 1,
                 column: 1,
@@ -176,20 +176,20 @@ t.test('parse(text, {wantNodes: true})', t => {
         t.strictSame(
             JSON5.parse('[1,2]', {wantNodes: true}),
             {
-                type: "array",
+                type: 'array',
                 value: [
                     {
-                        type: "numeric",
+                        type: 'numeric',
                         value: 1,
                         line: 1,
                         column: 2,
                     },
                     {
-                        type: "numeric",
+                        type: 'numeric',
                         value: 2,
                         line: 1,
                         column: 4,
-                    }
+                    },
                 ],
                 line: 1,
                 column: 1,
@@ -200,33 +200,33 @@ t.test('parse(text, {wantNodes: true})', t => {
         t.strictSame(
             JSON5.parse('[1,[2,3]]', {wantNodes: true}),
             {
-                type: "array",
+                type: 'array',
                 value: [
                     {
-                        type: "numeric",
+                        type: 'numeric',
                         value: 1,
                         line: 1,
                         column: 2,
                     },
                     {
-                        type: "array",
+                        type: 'array',
                         value: [
                             {
-                                type: "numeric",
+                                type: 'numeric',
                                 value: 2,
                                 line: 1,
                                 column: 5,
                             },
                             {
-                                type: "numeric",
+                                type: 'numeric',
                                 value: 3,
                                 line: 1,
                                 column: 7,
-                            }
+                            },
                         ],
                         line: 1,
                         column: 4,
-                    }
+                    },
                 ],
                 line: 1,
                 column: 1,
@@ -241,7 +241,7 @@ t.test('parse(text, {wantNodes: true})', t => {
         t.strictSame(
             JSON5.parse('null', {wantNodes: true}),
             {
-                type: "null",
+                type: 'null',
                 value: null,
                 line: 1,
                 column: 4,
@@ -256,7 +256,7 @@ t.test('parse(text, {wantNodes: true})', t => {
         t.strictSame(
             JSON5.parse('true', {wantNodes: true}),
             {
-                type: "boolean",
+                type: 'boolean',
                 value: true,
                 line: 1,
                 column: 4,
@@ -267,7 +267,7 @@ t.test('parse(text, {wantNodes: true})', t => {
         t.strictSame(
             JSON5.parse('false', {wantNodes: true}),
             {
-                type: "boolean",
+                type: 'boolean',
                 value: false,
                 line: 1,
                 column: 5,
@@ -419,4 +419,3 @@ t.test('parse(text, {wantNodes: true})', t => {
 
     t.end()
 })
-

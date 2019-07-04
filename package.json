@@ -1,5 +1,6 @@
 {
-  "name": "json5",
+  "name": "@johnls/json5",
+  "private": false,
   "version": "2.1.0",
   "description": "JSON for humans.",
   "main": "lib/index.js",
@@ -22,7 +23,8 @@
     "preversion": "npm run production",
     "production": "npm run lint && npm test && npm run build",
     "test": "tap -Rspec --100 test",
-    "version": "npm run build-package && git add package.json5"
+    "version": "npm run build-package && git add package.json5",
+    "deploy": "npm publish --access public"
   },
   "repository": {
     "type": "git",
