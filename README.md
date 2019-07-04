@@ -8,7 +8,7 @@ This fork adds the ability to parse the JSON5 into a *node tree* that includes t
 
 JSON5 adds features to JSON that make it more enjoyable to use JSON for data and script files that are edited by humans.  The `JSON5.parse` method is great when you just want to read or write JSON5 with only basic syntax error checking.  However, this is not ideal when using JSON5 as the storage format for more complicated data as the line, type and offset information generated during the parsing of the JSON5 file is lost.  In that sense, `JSON5.parse` only provides a check for *syntactic* validity.
 
-This library adds an additional parsing mode to help when doing *semantic* validity checking of the JSON5. Use it by making calling `JSON5.parse("...", {withNodes: true})`.  This will generate an object with nodes instead of a plain old Javascript object.
+This library adds an additional parsing mode to help when doing *semantic* validity checking of the JSON5. Use it by making calling `JSON5.parse("...", {wantNodes: true})`.  This will generate an object with nodes instead of a plain old Javascript object.
 
 For example, let's say you use the JSON5 format to store an array of items. For your data format to be valid, the items in the array must all be strings and must all be in ascending order.  You read in a valid JSON5 file into an object and start going through the array.  You find an entry that is out of order.  Unfortunately, with the basic `JSON5.parse` method you can no longer tell the user what line the error occurs on because you do not have that information.
 
@@ -27,7 +27,7 @@ Armed with this information, you can now display a line and column information t
 
 ## Example
 
-Take the following simple JSON5 document in the file:
+Take the following simple JSON5 document:
 
 ```json5
 {
@@ -41,7 +41,7 @@ Take the following simple JSON5 document in the file:
 }
 ```
 
-Calling `JSON5.parse(..., { withNodes: true })` on this generates:
+Calling `JSON5.parse(..., { wantNodes: true })` on this generates:
 
 ```json5
 {
@@ -102,5 +102,5 @@ As you can see, this is quite a bit more verbose, but accessing the data is real
 ## Future Things
 
 - There could be a `simplify` method that turns a sub-tree into a plain old Javascript object again.
-- The nodes should include the comments so that they can be manipulated. Will need to deal with end-of-line comments vs. full line comments.
+- The nodes should include the JSON5 comments so that they can be manipulated. Would need to differentiate end-of-line comments vs. full line comments probably.
 - If we support pulling comments into nodes, then it will be possible to "round-trip" the JSON5 to a node tree and back again preserving comments.

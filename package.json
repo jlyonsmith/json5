@@ -1,7 +1,7 @@
 {
   "name": "@johnls/json5",
   "private": false,
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "JSON for humans.",
   "main": "lib/index.js",
   "bin": "lib/cli.js",
@@ -28,7 +28,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/json5/json5.git"
+    "url": "git+https://github.com/jlyonsmith/json5.git"
   },
   "keywords": [
     "json",
@@ -39,13 +39,14 @@
   ],
   "author": "Aseem Kishore <aseem.kishore@gmail.com>",
   "contributors": [
+    "John Lyon-Smith <jlyonsmith@hotmail.com>",
     "Max Nanasy <max.nanasy@gmail.com>",
     "Andrew Eisenberg <andrew@eisenberg.as>",
     "Jordan Tucker <jordanbtucker@gmail.com>"
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/json5/json5/issues"
+    "url": "https://github.com/jlyonsmith/json5/issues"
   },
   "homepage": "http://json5.org/",
   "dependencies": {
