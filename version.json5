@@ -1,0 +1,26 @@
+{
+  filenames: [
+    "package.json"
+  ],
+  buildFormat: "full",
+  tags: {
+    major: 2,
+    minor: 3,
+    patch: 0,
+    build: 20190722,
+    revision: 0,
+    tz: "America/Los_Angeles",
+    startYear: "2017",
+    sequence: 20
+  },
+  fileTypes: [
+    {
+      name: "Node Package",
+      glob: "**/package.json",
+      update: {
+        search: "^(?<begin> *\"version\" *: *\")\\d+\\.\\d+\\.\\d+(?<end>\" *, *)$",
+        replace: "${begin}${major}.${minor}.${patch}${end}"
+      }
+    }
+  ]
+}

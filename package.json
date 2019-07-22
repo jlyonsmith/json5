@@ -1,7 +1,7 @@
 {
   "name": "@johnls/json5",
   "private": false,
-  "version": "2.1.1",
+  "version": "2.3.0",
   "description": "JSON for humans.",
   "main": "lib/index.js",
   "bin": "lib/cli.js",
